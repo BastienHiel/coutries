@@ -3,7 +3,7 @@ import { Icon } from 'semantic-ui-react';
 
 const Lives = () => {
     return(
-        <div>
+        <div>       
             <Icon name='heart' />
             <Icon name='heart' />
             <Icon name='heart' />
