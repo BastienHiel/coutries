@@ -13,10 +13,10 @@ class App extends React.Component {
   render() {
     return (
       <div className='app'>
-        <Wording />
-        <Result won={false} />
-        <Lives />
+        <Result won={true} />
+        <Wording />        
         <Riddle phrase='test' />
+        <Lives />
         <Letters alphabet={ALPHABET} /> 
         <Reset />
       </div>
