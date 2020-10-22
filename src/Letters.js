@@ -1,6 +1,7 @@
 import React from 'react'; 
 import PropTypes from 'prop-types'; 
 
+import './Letters.sass'; 
 import Letter from './Letter'; 
 
 const Letters = ({ alphabet }) => {

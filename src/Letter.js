@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types'; 
 import { Button } from 'semantic-ui-react'; 
 
-const Letter = ({ value }) => <Button primary className='letter'>{value}</Button>;
+import './Letter.sass'; 
+
+const Letter = ({ value }) => <Button basic color="blue" className='letter'>{value}</Button>;
 
 export default Letter; 
 
