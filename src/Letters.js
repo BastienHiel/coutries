@@ -7,11 +7,7 @@ import Letter from './Letter';
 
 const Letters = ({ alphabet, usedLetters, onClick }) => {
     const letterList = alphabet.map((letter, i) => 
-        <Letter 
-            value={letter} 
-            key={i} 
-            onClick={onClick} 
-            disabled={ usedLetters.has(letter) ? true : false} />
+        <Letter value={letter} key={i} onClick={onClick} disabled={usedLetters.has(letter) ? true : false} />
     );
 
     return (
