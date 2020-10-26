@@ -4,10 +4,12 @@ import { Button } from 'semantic-ui-react';
 
 import './Letter.sass'; 
 
-const Letter = ({ value }) => <Button basic color="blue" className='letter'>{value}</Button>;
+const Letter = ({ disabled, value, onClick }) => <Button basic color="blue" className='letter' disabled={disabled} onClick={onClick}>{value}</Button>;
 
 export default Letter; 
 
 Letter.propTypes = {
-    value: PropTypes.string.isRequired
+    disabled: PropTypes.bool.isRequired,
+    value: PropTypes.string.isRequired, 
+    onClick: PropTypes.func.isRequired
 }
