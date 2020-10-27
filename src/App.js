@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.sass';
 
-import { ALPHABET, COUNTRY } from './constants'; 
+import { ALPHABET, COUNTRY, STARTING_LIVES } from './constants'; 
 import Letters from './Letters'; 
 import Lives from './Lives'; 
 import Reset from './Reset'; 
