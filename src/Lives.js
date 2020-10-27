@@ -5,7 +5,7 @@ import { Icon } from 'semantic-ui-react';
 import './Lives.sass'; 
 
 const Lives = ({ livesLeft, startLives }) => {
-    const lives = [...Array(startLives)].map((_, i) => <Icon color='blue' size='large' name={ i < livesLeft ? 'heart' : 'heart outline'} />)
+    const lives = [...Array(startLives)].map((_, i) => <Icon color='blue' size='large' key={i} name={ i < livesLeft ? 'heart' : 'heart outline'} />)
     return(
         <div className='test'>
             {lives}      
