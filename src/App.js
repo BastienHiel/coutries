@@ -95,6 +95,10 @@ class App extends React.Component {
       this.setState(
         (prevState) => ({ matchedLetters: prevState.matchedLetters.add(letter) })
       )
+    } else {
+      this.setState(
+        (prevState) => ({ lives: prevState.lives-- })
+      )
     }
   }
 
