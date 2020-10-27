@@ -103,11 +103,11 @@ class App extends React.Component {
   }
 
   render() {
-    const { riddle, usedLetters } = this.state; 
+    const { inProgress, riddle, usedLetters, won } = this.state; 
     const phrase = this.computeDisplay(riddle, usedLetters);
     return (
       <div className='app'>
-        <Result won={true} />
+        {!inProgress && <Result won={won} />}
         <Wording />        
         <Riddle phrase={phrase} />
         <Lives />
