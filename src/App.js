@@ -11,10 +11,14 @@ import Wording from './Wording';
 
 class App extends React.Component {
   state = {
+    inProgress: true,
+    lives: STARTING_LIVES,
     matchedLetters: new Set(), 
+    reset: false, 
     riddle: "",
     riddleSet: new Set(),
-    usedLetters: new Set()
+    usedLetters: new Set(),
+    won: false
   }
 
   addToUsedLetters(letter) {
@@ -31,6 +35,38 @@ class App extends React.Component {
       riddle, 
       riddleSet
     })
+  }
+
+  componentDidUpdate() { 
+    const { inProgress, lives, matchedLetters, reset, riddleSet } = this.state; 
+    //no lives left 
+    if (lives === 0 && inProgress !== false) {
+      this.setState({ 
+        inProgress: false
+      })
+    }
+    //won
+    if (riddleSet.size === matchedLetters.size && inProgress !== false) {
+      this.setState({ 
+        inProgress: false, 
+        won: true
+      })
+    }
+    //play again
+    if (reset === true) {
+      const riddle = this.generateRiddle(); 
+      const riddleSet = this.computeRiddleSet(riddle); 
+      this.setState({
+        inProgress: true,
+        lives: STARTING_LIVES,
+        matchedLetters: new Set(), 
+        reset: false, 
+        riddle,
+        riddleSet,
+        usedLetters: new Set(),
+        won: false
+      })
+    }
   }
 
   //only function given in the exercise
