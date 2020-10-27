@@ -89,6 +89,12 @@ class App extends React.Component {
     this.matchRiddleSet(clickedLetter); 
   }
 
+  handleResetClick = () => {
+    this.setState({ 
+      reset: true
+    })
+  }
+
   matchRiddleSet(letter) {
     const { riddleSet } = this.state; 
     if (riddleSet.has(letter)) {
@@ -115,7 +121,7 @@ class App extends React.Component {
           alphabet={ALPHABET} 
           usedLetters={usedLetters}
           onClick={this.handleLetterClick} /> 
-        <Reset />
+        {!inProgress && <Reset onClick={this.handleResetClick} />}
       </div>
     ); 
   }
