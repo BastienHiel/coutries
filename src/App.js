@@ -103,7 +103,7 @@ class App extends React.Component {
       )
     } else {
       this.setState(
-        (prevState) => ({ livesLeft: prevState.livesLeft-- })
+        (prevState) => ({ livesLeft: prevState.livesLeft - 1 })
       )
     }
   }
