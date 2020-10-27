@@ -12,7 +12,7 @@ import Wording from './Wording';
 class App extends React.Component {
   state = {
     inProgress: true,
-    lives: STARTING_LIVES,
+    livesLeft: STARTING_LIVES,
     matchedLetters: new Set(), 
     reset: false, 
     riddle: "",
@@ -38,9 +38,9 @@ class App extends React.Component {
   }
 
   componentDidUpdate() { 
-    const { inProgress, lives, matchedLetters, reset, riddleSet } = this.state; 
+    const { inProgress, livesLeft, matchedLetters, reset, riddleSet } = this.state; 
     //no lives left 
-    if (lives === 0 && inProgress !== false) {
+    if (livesLeft === 0 && inProgress !== false) {
       this.setState({ 
         inProgress: false
       })
@@ -58,7 +58,7 @@ class App extends React.Component {
       const riddleSet = this.computeRiddleSet(riddle); 
       this.setState({
         inProgress: true,
-        lives: STARTING_LIVES,
+        livesLeft: STARTING_LIVES,
         matchedLetters: new Set(), 
         reset: false, 
         riddle,
@@ -103,20 +103,20 @@ class App extends React.Component {
       )
     } else {
       this.setState(
-        (prevState) => ({ lives: prevState.lives-- })
+        (prevState) => ({ livesLeft: prevState.livesLeft-- })
       )
     }
   }
 
   render() {
-    const { inProgress, riddle, usedLetters, won } = this.state; 
+    const { inProgress, livesLeft, riddle, usedLetters, won } = this.state; 
     const phrase = this.computeDisplay(riddle, usedLetters);
     return (
       <div className='app'>
         {!inProgress && <Result won={won} />}
         <Wording />        
         <Riddle phrase={phrase} />
-        <Lives />
+        <Lives livesLeft={livesLeft} startLives={STARTING_LIVES} />
         <Letters 
           alphabet={ALPHABET} 
           usedLetters={usedLetters}
